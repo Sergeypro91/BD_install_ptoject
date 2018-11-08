@@ -1,0 +1,27 @@
+{
+  "name": "bdinstall",
+  "version": "1.0.0",
+  "description": "bdinstall_html",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sergey Shevtsov",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-clean-css": "^3.10.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglifyjs": "^0.6.2",
+    "imagemin-pngquant": "^6.0.0"
+  },
+  "dependencies": {
+    "owl.carousel2": "^2.2.1"
+  }
+}
