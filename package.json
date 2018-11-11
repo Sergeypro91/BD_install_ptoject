@@ -23,8 +23,5 @@
   },
   "dependencies": {
     "owl.carousel2": "^2.2.1"
-  },
-  "scripts": {
-    "start": "gulp serve"
   }
 }
