@@ -288,6 +288,8 @@ a:hover {
   grid-row: 2;
   display: -ms-grid;
   display: grid;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
   grid-gap: 30px;
   margin: 0 calc(30px * 2) 30px;
 }
@@ -447,7 +449,10 @@ a:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background: url(../img/autumn-top.svg) left top no-repeat, url(../img/autumn-bottom.svg) right bottom no-repeat, url(../img/sale-bg.svg);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: url(../img/autumn-top.svg) left top no-repeat, url(../img/autumn-bottom.svg) right bottom no-repeat, radial-gradient(ellipse at center, #e68016 0%, #e61616 65%);
   padding: 30px;
 }
 
@@ -999,17 +1004,13 @@ input[type=text]:hover, input[type=tel]:hover, select:hover, textarea:hover {
   .main {
     -ms-grid-columns: (1fr)[10];
         grid-template-columns: repeat(10, 1fr);
-    -ms-grid-rows: 1fr 720px 150px 435px;
-        grid-template-rows: 1fr 720px 150px 435px;
   }
 }
 
-@media all and (min-width: 1000px) and (max-width: 1916px) {
+@media all and (min-width: 1200px) and (max-width: 1916px) {
   .main {
     -ms-grid-columns: (1fr)[5];
         grid-template-columns: repeat(5, 1fr);
-    -ms-grid-rows: 1fr 600px 720px 150px 435px 150px 435px;
-        grid-template-rows: 1fr 600px 720px 150px 435px 150px 435px;
   }
   .slider {
     -ms-grid-column: 1;
@@ -1045,6 +1046,8 @@ input[type=text]:hover, input[type=tel]:hover, select:hover, textarea:hover {
     grid-column: 1 / 6;
     -ms-grid-row: 4;
     grid-row: 4;
+    -ms-grid-columns: 135px calc((100vw - 30px * 2 * 2) - 30px * 3 - 135px);
+        grid-template-columns: 135px calc((100vw - 30px * 2 * 2) - 30px * 3 - 135px);
   }
   .clients {
     -ms-grid-column: 1;
@@ -1052,6 +1055,8 @@ input[type=text]:hover, input[type=tel]:hover, select:hover, textarea:hover {
     grid-column: 1 / 6;
     -ms-grid-row: 6;
     grid-row: 6;
+    -ms-grid-columns: 135px calc((100vw - 30px * 2 * 2) - 30px * 3 - 135px);
+        grid-template-columns: 135px calc((100vw - 30px * 2 * 2) - 30px * 3 - 135px);
   }
   .form {
     -ms-grid-column: 1;
@@ -1069,7 +1074,43 @@ input[type=text]:hover, input[type=tel]:hover, select:hover, textarea:hover {
   }
 }
 
-@media all and (max-width: 999px) {
+@media all and (max-width: 1199px) {
+  .slider--content {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  .slider--description {
+    width: 100%;
+    margin: 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    -ms-grid-column: 1;
+    grid-column: 1;
+  }
+  .slider--description .block--paragraph {
+    width: 50%;
+    text-align: right;
+  }
+  .header, .main {
+    margin: 0 15px;
+  }
+  .grid-cell {
+    margin-bottom: 15px;
+  }
+  .nav--list {
+    display: none;
+  }
+  .footer, .propouse, .sale, .product--child, .partners, .clients, .form, .map--description {
+    padding: 15px;
+  }
   .main {
     max-width: 100vw;
     display: -webkit-box;
@@ -1099,13 +1140,16 @@ input[type=text]:hover, input[type=tel]:hover, select:hover, textarea:hover {
             flex-direction: column;
   }
   .product .product--child .product--img-block {
-    display: block;
-    max-width: 200px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     width: 100%;
   }
   .product .product--child .product--img {
     width: 100%;
-    height: auto;
   }
   .product .product--child .product--description {
     display: -webkit-box;
@@ -1115,5 +1159,24 @@ input[type=text]:hover, input[type=tel]:hover, select:hover, textarea:hover {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+  .partners, .clients {
+    -ms-grid-columns: 135px calc((100vw - 30px * 2 * 2) - 30px * 3 - 135px);
+        grid-template-columns: 135px calc((100vw - 30px * 2 * 2) - 30px * 3 - 135px);
+  }
+  .map {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .map--container {
+    width: 100%;
+  }
+  .footer--menu {
+    display: none;
   }
 }

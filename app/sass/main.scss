@@ -808,8 +808,37 @@
 //Media smaller then 1199px
   @media all and (max-width:1199px) {
     $grid-gap: 15px;
-    .page {
+    .slider--content {
+      grid-template-columns: 1fr;
+    }
 
+    .slider--description {
+      width: 100%;
+      margin: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      grid-column: 1;
+      .block--paragraph {
+        width: 50%;
+        text-align: right;
+      }
+    }
+
+    .header, .main {
+      margin: 0 15px;
+    }
+
+    .grid-cell {
+      margin-bottom: 15px;
+    }
+
+    .nav--list {
+      display: none;
+    }
+
+    .footer, .propouse, .sale, .product--child, .partners, .clients, .form, .map--description {
+      padding: 15px;
     }
 
     .main {
@@ -827,16 +856,13 @@
         flex-direction: column;
 
         .product--img-block {
-          display: block;
-          max-width: 200px;
+          display: flex;
+          justify-content: center;
           width: 100%;
         }
 
         .product--img {
-          width: 100%;
-          height: auto;
-          
-          
+          width: 100%; 
         }
 
         .product--description{
@@ -848,5 +874,18 @@
 
     .partners, .clients {
       grid-template-columns: 135px calc((100vw - #{$margin-gap} * 2 * 2) - #{$margin-gap} * 3 - 135px);
+    }
+
+    .map {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .map--container {
+      width: 100%;
+    }
+
+    .footer--menu {
+      display: none;
     }
   }

@@ -1,2 +1,3 @@
 app/img/*.mp4
 dist/img/*.mp4
+BD_deploy/
