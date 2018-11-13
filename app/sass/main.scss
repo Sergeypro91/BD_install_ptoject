@@ -113,6 +113,8 @@
   }
 
   .page {
+    max-width: 1920px;
+    margin: auto;
     height: 100%;
     display: grid;
     grid-template-columns: 1fr;
@@ -158,7 +160,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
   }
 
   .nav--list-child, .nav--phone {
@@ -180,35 +181,49 @@
     justify-content: space-between;
   }
 
-  .nav--search {
+  .nav--search-show {
+    width: 18px;
+    background-image: url(../img/search--icon.svg);
+    background-repeat: no-repeat;
+    background-size: 18px;    
     cursor: pointer;
+  }
+
+  .nav--search-block {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba($main-color3, 0.5);
+    z-index: 10;
     input[type=text] {
-      position: absolute;
-      top: 7px;
-      right: 0;
-      width: 18px;
+      width: 100%;
       border: none;
       font-size: 16px;
-      background-image: url('../img/search--icon.svg');
-      background-size: 18px;
-      background-position: 100% 50%; 
-      background-repeat: no-repeat;
-      
-      transition: 0.5s ease-in-out;
-      &:focus {
-        width: 695px;
-        position: absolute;
-        top: 7px;
-        right: 0;
-        background-position: calc(100% - #{$grid-gap}) 50%;
-        box-sizing: border-box;
-        border: 2px solid #ccc;
-        border-radius: 4px;
-        background-color: white;
-        padding: 12px 60px 12px 12px;
-        transition: 0.5s;
-      }
     }
+  }
+
+  .search--wrapper {
+    max-width: 1920px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $main-color5;
+    height: 60px;
+    margin: auto;
+    padding: 0 calc(#{$grid-gap} * 2);
+  }
+
+  .nav--search-hide {
+    width: 18px;
+    height: 18px;
+    margin-left: $grid-gap;
+    background-image: url(../img/cros.svg);
+    background-repeat: no-repeat;
+    background-size: 18px;    
+    cursor: pointer;
   }
 
 // Main
@@ -216,8 +231,6 @@
     grid-row: 2;
     display: grid;
     grid-gap: $grid-gap;
-    grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: 690px 720px 150px 435px;
     margin: 0 calc(#{$margin-gap} * 2) $margin-gap;
   }
 
@@ -228,18 +241,24 @@
       background-color: $main_color6;
     }
 
-    .slider-content {
+    .slider--content {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       grid-template-rows: 100%;
     }
 
-    .slider-img {
+    .slider--img {
       grid-column: 1 / 6;
       grid-row: 1;
+      display: flex;
+      align-items: flex-end;
     }
 
-    .slider-description {
+    .slider--video {
+      width: 100%;
+    }
+
+    .slider--description {
       grid-column: 4 / 6;
       grid-row: 1;
       align-self: center;
@@ -643,8 +662,7 @@
     justify-content: space-between;
     background: $main_color3;
     grid-row: 3;
-    margin: 0 60px;
-    padding: $grid-gap;
+    padding: $grid-gap calc(#{$grid-gap} * 2);
   }
 
   .footer--logo {
@@ -727,4 +745,103 @@
         margin-right: 0;
       }
     }
+  }
+
+//Media biger then 1920px
+  @media all and (min-width:1917px) {
+    .main {
+      grid-template-columns: repeat(10, 1fr);
+      grid-template-rows: 1fr 720px 150px 435px;
+    }
+  }
+
+//Media from 1000 to 1920
+  @media all and (min-width:1000px) and (max-width:1916px) {
+    .main {
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: 1fr 600px 720px 150px 435px 150px 435px;
+    }
+
+    .slider {
+      grid-column: 1 / 6;
+      grid-row: 1;
+    }
+
+    .propouse {
+      grid-column: 4 / 6;
+      grid-row: 2;
+    }
+
+    .sale {
+      grid-column: 1 / 4;
+      grid-row: 2;
+    }
+
+    .product {
+      grid-column: 1 / 6;
+      grid-row: 3;
+    }
+
+    .partners {
+      grid-column: 1 / 6;
+      grid-row: 4;
+    }
+
+    .clients {
+      grid-column: 1 / 6;
+      grid-row: 6;
+    }
+
+    .form {
+      grid-column: 1 / 6;
+      grid-row: 7;
+    }
+
+    .map {
+      grid-column: 1 / 6;
+      grid-row: 5;
+    }
+  }
+
+//Media smaller then 999px
+  @media all and (max-width:999px) {
+    $grid-gap: 15px;
+    .page {
+
+    }
+
+    .main {
+      max-width: 100vw;
+      display: flex;
+      flex-direction: column;
+      
+    }
+
+    .product {
+      display: flex;
+      flex-direction: column;
+      .product--child {
+        display: flex;
+        flex-direction: column;
+
+        .product--img-block {
+          display: block;
+          max-width: 200px;
+          width: 100%;
+        }
+
+        .product--img {
+          width: 100%;
+          height: auto;
+          
+          
+        }
+
+        .product--description{
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+
   }

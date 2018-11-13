@@ -1,3 +1,11 @@
+$(".nav--search-show").click(function(){
+	$(".nav--search-block").show();
+});
+
+$(".nav--search-hide").click(function(){
+	$(".nav--search-block").hide();
+});
+
 $(document).ready(function() {
 	var owlHeader = $('.slider');
 	owlHeader.owlCarousel({
