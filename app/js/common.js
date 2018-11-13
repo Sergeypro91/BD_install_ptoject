@@ -33,10 +33,10 @@ $('.block-slider').owlCarousel({
         0:{
             items:1
         },
-        600:{
-            items:3
+        1200:{
+            items:5
         },
-        1000:{
+        1600:{
             items:3
         }
     }

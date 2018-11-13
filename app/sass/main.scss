@@ -755,8 +755,8 @@
     }
   }
 
-//Media from 1000 to 1920
-  @media all and (min-width:1000px) and (max-width:1916px) {
+//Media from 1200 to 1920
+  @media all and (min-width:1200px) and (max-width:1916px) {
     .main {
       grid-template-columns: repeat(5, 1fr);
       grid-template-rows: 1fr 600px 720px 150px 435px 150px 435px;
@@ -785,11 +785,13 @@
     .partners {
       grid-column: 1 / 6;
       grid-row: 4;
+      grid-template-columns: 135px calc((100vw - #{$margin-gap} * 2 * 2) - #{$margin-gap} * 3 - 135px);
     }
 
     .clients {
       grid-column: 1 / 6;
       grid-row: 6;
+      grid-template-columns: 135px calc((100vw - #{$margin-gap} * 2 * 2) - #{$margin-gap} * 3 - 135px);
     }
 
     .form {
@@ -803,8 +805,8 @@
     }
   }
 
-//Media smaller then 999px
-  @media all and (max-width:999px) {
+//Media smaller then 1199px
+  @media all and (max-width:1199px) {
     $grid-gap: 15px;
     .page {
 
