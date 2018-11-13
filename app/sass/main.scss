@@ -230,6 +230,7 @@
   .main {
     grid-row: 2;
     display: grid;
+    grid-template-rows: auto;
     grid-gap: $grid-gap;
     margin: 0 calc(#{$margin-gap} * 2) $margin-gap;
   }
@@ -346,7 +347,8 @@
       grid-column: 7 / 11;
       grid-row: 1;
       display: flex;
-      background: url(../img/autumn-top.svg) left top no-repeat, url(../img/autumn-bottom.svg) right bottom no-repeat, url(../img/sale-bg.svg);
+      justify-content: center;
+      background: url(../img/autumn-top.svg) left top no-repeat, url(../img/autumn-bottom.svg) right bottom no-repeat, radial-gradient(ellipse at center, #e68016 0%, rgba(230,22,22,1) 65%);
       padding: $margin-gap;
       &>div {
         align-self: center;
@@ -751,7 +753,6 @@
   @media all and (min-width:1917px) {
     .main {
       grid-template-columns: repeat(10, 1fr);
-      grid-template-rows: 1fr 720px 150px 435px;
     }
   }
 
@@ -759,7 +760,6 @@
   @media all and (min-width:1200px) and (max-width:1916px) {
     .main {
       grid-template-columns: repeat(5, 1fr);
-      grid-template-rows: 1fr 600px 720px 150px 435px 150px 435px;
     }
 
     .slider {
@@ -846,4 +846,7 @@
       }
     }
 
+    .partners, .clients {
+      grid-template-columns: 135px calc((100vw - #{$margin-gap} * 2 * 2) - #{$margin-gap} * 3 - 135px);
+    }
   }
