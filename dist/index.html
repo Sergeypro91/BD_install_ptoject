@@ -31,13 +31,8 @@
 		</div>
 	</header>
 	<div class="main">
-		<div class="slider owl-carousel owl-theme owl-theme grid-cell">
-			<div class="slider--content item">
-				<div class="slider--img">
-					<video class="slider--video" autoplay autobuffer playsinline webkit-playsinline loop muted>
-					   <source src="img/bdbg.mp4" type="video/mp4">
-					</video>
-				</div>
+		<div class="slider owl-carousel grid-cell">
+			<div class="slider--content item" data-videosrc="img/bdbg.mp4">
 				<div class="slider--description">
 					<h1 class="block--h1">Бизнес-Док</h1>
 					<h2 class="block--name">Орел</h2>
@@ -82,7 +77,15 @@
 		<div class="sale grid-cell">
 			<div class="sale-block">
 				<div class="block--name block--name__white">Акция</div>
-				<div class="block--counter"></div>
+				<div class="block--counter" id="countdown">
+					<div id='tiles'></div>
+					<div class="labels">
+						<li class="block--paragraph block--paragraph__white">Дни</li>
+						<li class="block--paragraph block--paragraph__white">Часы</li>
+						<li class="block--paragraph block--paragraph__white">Минуты</li>
+						<li class="block--paragraph block--paragraph__white">Секунды</li>
+					</div>
+				</div>
 				<div class="sale--description">
 					<h3 class="block--h3 block--h3__white">Успей купить Атол 30Ф</h3>
 					<p class="block--paragraph block--paragraph__white">При покупке контрольно кассовой техники Атол 30Ф в декабре месяце, Вы безплатно получаете сканер штрих кода Honeywell 1450ghr</p>

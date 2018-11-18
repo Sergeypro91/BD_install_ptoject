@@ -9,13 +9,13 @@ $(".nav--search-hide").click(function(){
 $( document ).ready(function() {
   var owl = $('.slider');
   owl.owlCarousel({
-    loop:true,
-    autoplay:true,
-    autoplayTimeout:1000,
-    margin:30,
-    nav:true,
-    dots:true,
-    items:1
+    loop: true,
+    autoplay: true,
+    autoplayTimeout: 83000,
+    margin: 30,
+    nav: false,
+    dots: true,
+    items: 1
   })
   owl.on('translate.owl.carousel',function(e){
     $('.owl-item video').each(function(){
@@ -65,6 +65,8 @@ $('.block-slider').owlCarousel({
     autoplay: true,
     slideSpeed: 300,
     paginationSpeed: 400,
+    nav: false,
+    dots: false,
     responsive:{
         0:{
             items:2
