@@ -5,11 +5,14 @@
 	<title>BDinstall</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#1A68FF">
 	<link rel="stylesheet" href="css/main.css">
 </head>
 <body class="page">
 	<header class="header">
 		<div class="logo"><a href=""><img src="img/logo-color.svg" alt=""></a></div>
+		<input type="checkbox" id="menuToggler" class="input-toggler"/>
+  		<label for="menuToggler" class="menu-toggler"> <span class="menu-toggler__line"></span> <span class="menu-toggler__line"></span> <span class="menu-toggler__line"></span> </label>
 		<div class="nav">
 			<ul class="nav--list">
 				<li class="nav--list-child"><a href="#">Акции</a></li>
@@ -19,7 +22,7 @@
 				<li class="nav--list-child"><a href="#">Контакты</a></li>
 			</ul>
 			<div class="nav--specials">
-				<div class="nav--phone"><a href="">+7 (000) 000-00-00</a></div>
+				<div class="nav--phone"><a href="tel:486-225-5307">+7 (486) 225-53-07</a></div>
 				<div class="nav--search-show"></div>
 				<div class="nav--search-block">
 					<div class="search--wrapper">
@@ -156,7 +159,7 @@
 			</div>
 			<div class="product--child product--child__l grid-cell">
 				<a class="product--linck" href="#">
-					<div class="product--img-block"><img class="product--img" src="img/Сигма-10-5.jpg" alt=""></div>
+					<div class="product--img-block"><img class="product--img" src="img/Сигма-10-5.png" alt=""></div>
 					<div class="product--description">
 						<div class="product--description-block1">
 							<h3 class="block--h3">Атол Sigma-10</h3>
@@ -260,18 +263,22 @@
 					</div>
 					<div class="map--phone">
 						<p class="block--paragraph block--paragraph_m">Телефон:</p>
-						<p class="block--paragraph">+7 (000) 000-00-00</p>
+						<p class="block--paragraph"><a href="tel:486-225-5307">+7 (486) 225-53-07</a></p>
 					</div>
 					<div class="map--e-mail">
 						<p class="block--paragraph block--paragraph_m">Email:</p>
-						<p class="block--paragraph">orel@bd71.ru</p>
+						<p class="block--paragraph"><a href="mailto:info@bd57.ru">info@bd57.ru</a></p>
 					</div>
 				</div>
-				<div class="map--socials">
-					<div class="map--socials-child"><a href=""><img src="" alt=""></a></div>
-					<div class="map--socials-child"><a href=""><img src="" alt=""></a></div>
-					<div class="map--socials-child"><a href=""><img src="" alt=""></a></div>
-					<div class="map--socials-child"><a href=""><img src="" alt=""></a></div>
+				<div class="map--schedule">
+					<div class="map--workers">
+						<div class="block--paragraph block--paragraph_m">Рабочие дни:</div>
+						<div class="block--paragraph">ПН - ПТ с 9:00 до 18:00</div>
+					</div>
+					<div class="map--weekends">
+						<div class="block--paragraph block--paragraph_m">Выходные дни:</div>
+						<div class="block--paragraph">СБ - ВС</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -279,9 +286,6 @@
 	<footer class="footer">
 		<div class="footer--logo">
 			<div class="logo__footer"><a href="#"><img src="img/logo-white.svg" alt=""></a></div>
-			<div class="footer--copyright">
-				<p class="block--paragraph">2018 Бизнес-Док Орел. Все права защищены.</p>
-			</div>
 		</div> 
 		<ul class="footer--menu">
 			<li class="footer--menu-child"><a href="#">Каталог</a></li>
@@ -319,6 +323,9 @@
 				<img src="img/maestro.svg" alt="">
 				<img src="img/visa.svg" alt="">
 			</div>
+		</div>
+		<div class="footer--copyright">
+			<p class="block--paragraph">2018 Бизнес-Док Орел. Все права защищены.</p>
 		</div>
 	</footer>
 	<script src="js/libs.min.js"></script>
