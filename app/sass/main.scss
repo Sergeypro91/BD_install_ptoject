@@ -112,12 +112,12 @@
     }
   }
 
-  .page {
+  .body-page {
     max-width: 1920px;
     margin: auto;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 60px 1fr 220px;
+    grid-template-rows: 60px minmax(calc(100vh - 280px), 1fr) 220px;
     background-color: $main_color5;
     background-image: url(../img/dot.svg);
     background-repeat: repeat;
@@ -187,6 +187,10 @@
 
   .nav--list-child {
     display: inline;
+  }
+
+  .current_page_item a {
+    color: $main-color2;
   }
 
   .nav--specials {
@@ -1281,7 +1285,7 @@
 
 // EI style
   @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    .page {
+    .body-page {
       grid-template-rows: 60px minmax(calc(100vh - 280px), 1fr) 220px;       
     }
 
