@@ -88,7 +88,7 @@
   });
 
 // Block--counter
-  var target_date = new Date("Jan 1, 2019 00:00:00").getTime(); // set the countdown date
+  var target_date = new Date().getTime() + (1000*3600*48); // set the countdown date
   var days, hours, minutes, seconds; // variables for time units
 
   var countdown = document.getElementById("tiles"); // get tag element
@@ -167,7 +167,7 @@
       // проверим, если в поле ввода более 2 символов, запускаем ajax
       if(searchTerm.length > 2){
         $.ajax({
-          url : '/wp-admin/admin-ajax.php',
+          url : 'wp-admin/admin-ajax.php',
           type: 'POST',
           data:{
             'action':'codyshop_ajax_search',

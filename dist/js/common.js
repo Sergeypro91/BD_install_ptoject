@@ -1,3 +1,14 @@
+//Product-page image listener
+  var current = document.querySelector('#current');
+  var imgs = document.querySelectorAll('.product-page__imgs img');
+  imgs.forEach(img => img.addEventListener('click', imgClick));
+
+  function imgClick(e) {
+    current.src = e.target.src; // Add fade in class
+    current.classList.add('fade-in'); // Add fade in class
+    setTimeout(() => current.classList.remove('fade-in'), 500); // Remove fade-in class after .5 seconds
+  }
+
 // Show, hide search on mobile
   $(".nav--search-show").click(function(){
     $(".nav--search-block").show();
@@ -148,3 +159,25 @@
       
       lastScrollTop = st;
   }
+
+// Ayax search
+  jQuery(document).ready(function($){
+    $('.nav--search').keypress(function(eventObject){
+      var searchTerm = $(this).val();
+      // проверим, если в поле ввода более 2 символов, запускаем ajax
+      if(searchTerm.length > 2){
+        $.ajax({
+          url : '/wp-admin/admin-ajax.php',
+          type: 'POST',
+          data:{
+            'action':'codyshop_ajax_search',
+            'term'  :searchTerm
+          },
+          success:function(result){
+            $('.codyshop-ajax-search').fadeIn().html(result);
+          }
+        });
+      }
+    });
+  });
+
