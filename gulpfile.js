@@ -10,7 +10,7 @@ var gulp         = require('gulp'),
 	pngquant     = require('imagemin-pngquant'),
 	autoprefixer = require('gulp-autoprefixer');
 
-gulp.task('sass', function() {
+gulp.task('sass', gulp.series(function() {
 	return gulp.src('app/sass/**/*.scss')
 		.pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
 		.pipe(autoprefixer({
@@ -19,9 +19,9 @@ gulp.task('sass', function() {
 		}))
 		.pipe(gulp.dest('app/css'))
 		.pipe(browserSync.reload({stream: true}))
-});
+}));
 
-gulp.task('scripts', function() {
+gulp.task('scripts', gulp.series(function() {
 	return gulp.src([
 		'bower_components/jquery/dist/jquery.min.js',
 		'node_modules/owl.carousel2/dist/owl.carousel.min.js'
@@ -29,28 +29,28 @@ gulp.task('scripts', function() {
 		.pipe(concat('libs.min.js'))
 		.pipe(uglify())
 		.pipe(gulp.dest('app/js'));
-});
+}));
 
-gulp.task('css-libs', ['sass'], function() {
+gulp.task('css-libs', gulp.series('sass', function() {
 	return gulp.src('app/css/libs.css')
 		.pipe(cssnano())
 		.pipe(rename({suffix: '.min'}))
 		.pipe(gulp.dest('app/css'));
-});
+}));
 
-gulp.task('browser-sync', function() {
+gulp.task('browser-sync', gulp.series(function() {
 	browserSync({
 		server: {
 			baseDir: 'app'
 		},
 	});
-});
+}));
 
-gulp.task('clean', function() {
+gulp.task('clean', gulp.series(function() {
 	return del.sync('dist');
-});
+}));
 
-gulp.task('img', function() {
+gulp.task('img', gulp.series(function() {
 	return gulp.src('app/img/**/*')
 		.pipe(imagemin({
 			optimizationLevel: 3,
@@ -60,15 +60,15 @@ gulp.task('img', function() {
 			use: [pngquant()]
 		}))
 		.pipe(gulp.dest('dist/img'));
-});
+}));
 
-gulp.task('watch', ['browser-sync', 'css-libs', 'scripts'], function() {
+gulp.task('watch', gulp.series('browser-sync', 'css-libs', 'scripts', function() {
 	gulp.watch('app/sass/**/*.scss', ['sass']);
 	gulp.watch('app/*.html', browserSync.reload);
 	gulp.watch('app/js/**/*.js', browserSync.reload);
-});
+}));
 
-gulp.task('build', ['clean', 'img', 'sass', 'scripts'], function() {
+gulp.task('build', gulp.series('clean', 'img', 'sass', 'scripts', function() {
 
 	var buildCss = gulp.src('app/css/**/*')
 		.pipe(gulp.dest('dist/css'));
@@ -82,4 +82,4 @@ gulp.task('build', ['clean', 'img', 'sass', 'scripts'], function() {
 	var buildHtml = gulp.src('app/*.html')
 		.pipe(gulp.dest('dist'));
 
-});
+}));

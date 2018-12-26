@@ -18,7 +18,7 @@
   .nav {
     font-family: $font-family2;
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 19px;
 
     a {
@@ -868,8 +868,8 @@
 
     .market--manufact-logo {
       height: 100%;
-      max-height: 50px;
       img {
+        max-height: 50px;
         height: 100%;
       }
     }
@@ -879,11 +879,10 @@
       height: 100%;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
     }
 
     .market--child-img {
-      max-height: 75%;
+      max-height: 200px;
       height: 100%;
       display: flex;
       justify-content: center;
@@ -893,6 +892,13 @@
         max-height: 100%;
         height: auto;
       }
+    }
+
+    .market--child-descr {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .market--child-price {

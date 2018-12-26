@@ -11,7 +11,6 @@
   "devDependencies": {
     "browser-sync": "^2.26.3",
     "del": "^3.0.0",
-    "gulp": "^3.9.1",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-clean-css": "^3.10.0",
     "gulp-concat": "^2.6.1",
@@ -19,9 +18,18 @@
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-uglifyjs": "^0.6.2",
-    "imagemin-pngquant": "^6.0.0"
+    "imagemin-pngquant": "^6.0.1"
   },
   "dependencies": {
+    "gulp": "^4.0.0",
     "owl.carousel2": "^2.2.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sergeypro91/BD_install_ptoject.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Sergeypro91/BD_install_ptoject/issues"
+  },
+  "homepage": "https://github.com/Sergeypro91/BD_install_ptoject#readme"
 }
