@@ -1325,10 +1325,46 @@ input[type=text]:hover, input[type=tel]:hover, select:hover, textarea:hover {
   cursor: pointer;
 }
 
-.product-page--descr {
+.product-page--info {
   -webkit-box-flex: 3;
       -ms-flex: 3 100%;
           flex: 3 100%;
+}
+
+.product-page--info-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.product-page--info-button .block--h3 {
+  margin: 0;
+}
+
+.product-page--info-button > * {
+  padding-right: 15px;
+  margin-bottom: 30px;
+}
+
+.product-page--descr-button, .product-page--texnical-button {
+  cursor: pointer;
+}
+
+.product-page--descr-button .block--h3, .product-page--texnical-button .block--h3 {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.product-page--descr-button .block--h3:hover, .product-page--texnical-button .block--h3:hover {
+  color: #1A68FF;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.product-page--descr-button__active .block--h3, .product-page--texnical-button__active .block--h3 {
+  color: #1A68FF;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .product-page--price .block--h3::after {
@@ -1336,6 +1372,12 @@ input[type=text]:hover, input[type=tel]:hover, select:hover, textarea:hover {
   display: inline-block;
   width: 10px;
   margin-left: 3px;
+}
+
+.product-page--texnical {
+  display: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .product-page--texnical-chapter {
@@ -1392,6 +1434,11 @@ input[type=text]:hover, input[type=tel]:hover, select:hover, textarea:hover {
   opacity: 0;
   -webkit-animation: fadeIn var(--fade-time) ease-in 1 forwards;
           animation: fadeIn var(--fade-time) ease-in 1 forwards;
+}
+
+.img__border {
+  border: 3px solid blue;
+  border-radius: 4px;
 }
 
 /* Media Queries */

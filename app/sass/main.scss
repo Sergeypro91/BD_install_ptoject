@@ -964,9 +964,38 @@
 			cursor: pointer;
 		}
 
-		.product-page--descr {
+		.product-page--info {
 			flex: 3 100%;
 		}
+
+		.product-page--info-button {
+		    display: flex;
+		    .block--h3 {
+		    	margin: 0;
+		    }
+		    & > * {
+		    	padding-right: 15px;
+		    	margin-bottom: 30px;
+		    }
+		}
+
+		.product-page--descr-button, .product-page--texnical-button {
+			cursor: pointer;
+			& .block--h3 {
+				transition: 0.5s;
+			}
+			& .block--h3:hover {
+				color: $main-color2;
+				transition: 0.5s;
+			}
+		}
+
+		.product-page--descr-button__active, .product-page--texnical-button__active {
+			& .block--h3 {
+				color: $main-color2;
+				transition: 0.5s;
+			}
+		}		
 
 		.product-page--price {
 			.block--h3::after {
@@ -975,6 +1004,11 @@
 				width: 10px;
 				margin-left: 3px;
 			}
+		}
+
+		.product-page--texnical {
+			display: none;
+			transition: 0.5s;
 		}
 
 		.product-page--texnical-chapter {
@@ -1016,6 +1050,11 @@
 		.fade-in {
 			opacity: 0;
 			animation: fadeIn var(--fade-time) ease-in 1 forwards;
+		}
+
+		.img__border {
+		    border: 3px solid $main-color2;
+		    border-radius: 4px;
 		}
 
 		/* Media Queries */

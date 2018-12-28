@@ -1,6 +1,6 @@
 //Product-page image listener
   var current = document.querySelector('#current');
-  var imgs = document.querySelectorAll('.product-page__imgs img');
+  var imgs = document.querySelectorAll('.product-page--imgs img');
   imgs.forEach(img => img.addEventListener('click', imgClick));
 
   function imgClick(e) {
@@ -16,6 +16,26 @@
 
   $(".nav--search-hide").click(function(){
     $(".nav--search-block").hide();
+  });
+
+// Show/hide description and tehnical info on product page
+  var texnical = $(".product-page--texnical");
+  var descr = $(".product-page--descr");
+  var texnicalButton = $(".product-page--texnical-button");
+  var descrButton = $(".product-page--descr-button");
+
+  $(texnicalButton).click(function(){
+    $(descr).css("display", "none");
+    $(texnical).css("display", "block");
+    $(texnicalButton).addClass("product-page--texnical-button__active");
+    $(descrButton).removeClass("product-page--descr-button__active");
+  });
+
+  $(descrButton).click(function(){
+    $(descr).css("display", "block");
+    $(texnical).css("display", "none");
+    $(descrButton).addClass("product-page--descr-button__active");
+    $(texnicalButton).removeClass("product-page--texnical-button__active");
   });
 
 // Main slider
@@ -167,7 +187,7 @@
       // проверим, если в поле ввода более 2 символов, запускаем ajax
       if(searchTerm.length > 2){
         $.ajax({
-          url : '/wp-admin/admin-ajax.php',
+          url : 'wp-admin/admin-ajax.php',
           type: 'POST',
           data:{
             'action':'codyshop_ajax_search',
