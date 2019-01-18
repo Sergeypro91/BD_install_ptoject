@@ -118,9 +118,6 @@
 		grid-template-columns: 1fr;
 		grid-template-rows: 60px minmax(calc(100vh - 280px), 1fr) 220px;
 		background-color: $main_color5;
-		background-image: url(../img/dot.svg);
-		background-repeat: repeat;
-		background-size: 17px;
 		
 	}
 
@@ -444,7 +441,9 @@
 			grid-row: 1;
 			display: flex;
 			justify-content: center;
-			background: url(../img/autumn-top.svg) left top no-repeat, url(../img/autumn-bottom.svg) right bottom no-repeat, radial-gradient(ellipse at center, #e68016 0%, rgba(230,22,22,1) 65%);
+			background: url(../img/winter_top_left.svg) left top no-repeat, url(../img/winter_bottom_right.svg) right bottom no-repeat, url(../img/winter_snow.svg) center center no-repeat, radial-gradient(ellipse at center, #e68016 0%, #e61616 65%);
+			background-position: center;
+    		background-size: cover;
 			padding: $margin-gap;
 			&>div {
 				align-self: center;
@@ -574,11 +573,14 @@
 			display: flex;
 			justify-content: space-between;
 			width: 100%;
-			.block--h3::after {
-				content: url(../img/rub.svg);
-				display: inline-block;
-				width: 10px;
-				margin-left: 3px;
+			.block--h3 {
+				margin: 0;
+				&::after {
+					content: url(../img/rub.svg);
+					display: inline-block;
+					width: 10px;
+					margin-left: 3px;
+				}
 			}
 		}
 
@@ -596,6 +598,7 @@
 		}
 
 		.product--stars {
+			display: none;
 			width: 80px;
 			height: 15px;
 			background: url(../img/stars.svg);
@@ -650,7 +653,6 @@
 				flex: 2 50%;
 			}
 		}
-
 
 	// Partners , Clients
 		.partners {
@@ -793,6 +795,7 @@
 
 		.map--description {
 			padding: $margin-gap;
+			background: $main-color6;
 		}
 
 		.map--address, .map--phone, .map--e-mail, .map--workers, .map--weekends {
@@ -869,13 +872,13 @@
 		.market--manufact-logo {
 			height: 100%;
 			img {
-				max-height: 50px;
+				max-height: 100px;
 				height: 100%;
 			}
 		}
 
 		.market--child {
-			max-height: 350px;
+			max-height: 4000px;
 			height: 100%;
 			display: flex;
 			flex-direction: column;
@@ -886,7 +889,7 @@
 			height: 100%;
 			max-width: 200px;
 			width: 100%;
-			margin: auto;
+			margin: 30px auto 0;
 			display: flex;
 			align-items: center;
 			a {
@@ -907,7 +910,7 @@
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
-			padding-top: calc(#{$grid-gap} / 2);
+			padding: $grid-gap;
 			.block--h3 {
 				a {
 					color: $main-color3;
@@ -938,6 +941,9 @@
 
 		.product-page {
 			grid-column: 1 / 8;
+			min-height: 600px;
+			padding: $grid-gap;
+
 		}
 
 		.product-page--product {
@@ -949,7 +955,7 @@
 			max-width: 550px;
 		}
 
-		.product-page--imgs img, .product-page--main-img img {
+		.product-page--main-img img {
 			width: 100%;
 		}
 
@@ -957,15 +963,28 @@
 			display: flex;
 			flex-direction: column;
 			flex: 1 100%;
-			max-width: 150px;
+			max-width: 115px;
+			padding-right: 15px;
 		}
 
-		.product-page--imgs img {
+		.product-page--img {
+			margin-bottom: 15px;
 			cursor: pointer;
+		}
+
+		.product-page--img-picture {
+			width: 100%;
+				border: 3px solid transparent;
+				transition: 0.5s;
+			&:hover {
+				border: 3px solid $main-color2;
+				transition: 0.5s;
+			}
 		}
 
 		.product-page--info {
 			flex: 3 100%;
+			padding-left: 15px;
 		}
 
 		.product-page--info-button {
@@ -1020,6 +1039,7 @@
 		.product-page--option {
 			display: inline-block;
 			margin: 0;
+			font-weight: 500;
 		}
 
 		.product-page--clearspace {
@@ -1038,6 +1058,7 @@
 
 		.product-comments {
 			grid-column: 8 / 11;
+			padding: $grid-gap;
 		}
 
 		/* Fade in animation */
@@ -1064,6 +1085,155 @@
 			}
 		}
 		
+	//Propouse-page
+		.propouse-page {
+			grid-column: 1 / -1;
+		    display: flex;
+		    justify-content: space-around;
+		}
+
+		.propouse-page--child {
+		    flex: 1;
+		    display: flex;
+		    flex-direction: column;
+		    justify-content: center;
+		}
+
+		.propouse-page--img-block {
+		    display: flex;
+		    justify-content: center;
+		}
+
+		.propouse-page--child-info {
+			padding: $grid-gap;
+			* {
+				text-align: center;
+			}
+		}
+
+	//Sale-page
+		.sale-page {
+			grid-column: 1 / -1;
+		    display: flex;
+		}
+
+		.sale-page--child {
+			flex: 1;
+		    max-width: 25%;
+    		min-width: 290px;
+    		background-color: white;
+    		background-repeat: no-repeat;
+    		background-position: left topp;
+    		background-size: 200%;
+    		transition: 0.2s ease-in-out;
+    		&:hover {
+    			background-position: center center;
+    			background-size: 80%;
+    		}
+		}
+
+		.sale-page--child-info {
+			height: 100%;
+		    display: flex;
+		    flex-direction: column;
+		    justify-content: space-between;
+    		padding: $grid-gap;
+    		background: linear-gradient(45deg, #e61616db, #1a68ff80);
+		}
+
+	//Kontacts-page
+		.kontacts-page {
+			grid-column: 1 / -1;
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+
+		.map--city {
+		    margin-bottom: 15px;
+		    &::after {
+    	    	content: "";
+    			display: block;
+    			border-bottom: 1px solid $main-color3;
+		    }
+		}
+		
+		.map--department {
+			min-width: 290px;
+		    max-width: 50%;
+		    width: 100%;
+		    min-height: 320px;
+		    max-height: 500px;
+		    height: 100%;
+		    display: flex;
+		    margin-bottom: $margin-gap;
+			&:nth-child(2n+1) {
+				padding-right: calc(#{$margin-gap} / 2);
+			}
+			&:nth-child(2n) {
+				padding-left: calc(#{$margin-gap} / 2);
+			}
+			.map--container {
+				width: 100%;
+			}
+			.map--description {
+			    min-width: 290px;
+			    max-width: 320px;
+			    width: 100%;
+			}
+		}
+
+	//Search-block
+		.codyshop-ajax-search {
+		    position: fixed;
+		    box-sizing: border-box;
+		    background: #ececec;
+		    display: none;
+    		flex-wrap: wrap;
+		    max-height: 500px;
+		    overflow-y: auto;
+		    width: 100%;
+		    top: 60px;
+		    left: 0;
+		    margin: 0;
+			padding: 0 60px;
+		}
+
+		.search--block {
+		    display: flex;
+   			max-width: calc((100% - 30px * 3) / 4);
+   			background: white;
+    		padding: 30px;
+		    margin-right: 30px;
+    		margin-bottom: 30px;
+    		&:nth-child(4n) {
+    			margin-right: 0;
+    		}
+		}
+
+		.search--block-img {
+			width: 100%;
+			display: flex;
+    		justify-content: center;
+    		align-items: center;
+    		padding-right: $grid-gap;
+			img {
+    			max-height: 100px;
+    			max-width: 100px;
+				width: auto;
+			}
+		}
+
+		.search--block-error {
+		    font-size: 72px;
+		    height: 100%;
+		    min-height: 500px;
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+		    font-family: Oswald, sans-serif;
+		}
+
 // Footer
 	.footer {
 		display: grid;

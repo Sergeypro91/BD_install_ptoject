@@ -195,6 +195,7 @@
           },
           success:function(result){
             $('.codyshop-ajax-search').fadeIn().html(result);
+            $('.codyshop-ajax-search').css("display", "flex");
           }
         });
       }
