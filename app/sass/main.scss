@@ -1502,6 +1502,9 @@
 			    	margin-right: 0 !important;
 			    }
 			}
+
+		// Product page
+
 	}
 
 // Media smaller then 1199px
@@ -1542,7 +1545,7 @@
 			}
 
 			.grid-cell {
-				margin-bottom: 15px;
+				margin-bottom: $grid-gap_small;
 			}
 
 			//Sidebar menu
@@ -1706,7 +1709,22 @@
 			//Propouse
 				.propouse--chapter {
 					border: none;
-					margin-bottom: 15px;
+					margin-bottom: $grid-gap_small;
+				}
+
+				@media all and (max-width:425px) {
+					.propouse--chapter {
+						&:hover {
+							.propouse--img {
+								width: 65px;
+								margin: $grid-gap_small $grid-gap_small $grid-gap_small 0;
+							}
+						}
+					}
+
+					.propouse--img {
+						margin: $grid-gap_small $grid-gap $grid-gap_small 0;
+					}
 				}
 
 			#tiles {
@@ -1870,14 +1888,14 @@
 				}
 
 			//Map
-			.map {
-				display: flex;
-				flex-direction: column;
-			}
+				.map {
+					display: flex;
+					flex-direction: column;
+				}
 
-			.map--container {
-				width: 100%;
-			}
+				.map--container {
+					width: 100%;
+				}
 		
 		// Footer
 			.footer {
@@ -1932,6 +1950,7 @@
 			.market {
 				grid-template-columns: repeat(4, 1fr);
 				margin-bottom: $grid-gap_small;
+				grid-gap: $grid-gap_small;
 			}
 
 			.block--paragraph {
@@ -1949,13 +1968,13 @@
 				}
 			}
 
-			@media all and (max-width:425px) {
+			@media all and (max-width:600px) {
 				.market {
 					grid-template-columns: repeat(2, 1fr);
 				}
 			}
 
-			@media all and (max-width:375px) {
+			@media all and (max-width:425px) {
 				.market {
 					grid-template-columns: 1fr;
 				}
@@ -2032,22 +2051,28 @@
 			}
 
 		// Search-block
-			@media all and (max-width:1199px) {
-				.nav {
-					overflow: scroll;
-				}
+			.nav {
+				overflow: scroll;
+			}
 
-				.codyshop-ajax-search {
-					padding: 0 $grid-gap_small;
-				}
+			.search--wrapper {
+				padding: 0 calc(#{$grid-gap} * 2) 0 $grid-gap_small;
+			}
 
-				.search--block {
-					max-width: calc((100% - #{$grid-gap_small} * 1) / 2);
-				    margin: 0 $grid-gap_small $grid-gap_small 0;
-				    &:nth-child(2n) {
-				    	margin-right: 0;
-				    }
-				}
+			.codyshop-ajax-search {
+				padding: 0 $grid-gap_small;
+			}
+
+			.search--block {
+				max-width: calc((100% - #{$grid-gap_small} * 1) / 2);
+			    margin: 0 $grid-gap_small $grid-gap_small 0;
+			    &:nth-child(2n) {
+			    	margin-right: 0;
+			    }
+			}
+
+			.search--block-error {
+				line-height: 1;
 			}
 
 			@media all and (max-width:600px) {
@@ -2057,6 +2082,35 @@
 				    &:nth-child(n) {
 				    	margin-right: 0;
 				    }
+				}
+			}
+
+		// Product page
+			.product-page{
+				padding: $grid-gap_small;
+			}
+
+			@media all and (max-width:425px) {
+				.product-page--product {
+					flex-direction: column;
+				}
+
+				.product-page--imgs {
+					flex-direction: row;
+					max-width: 100%;
+					padding: 0;
+				}
+
+				.product-page--img {
+    				width: calc((100% - #{$grid-gap_small} * 3) / 4);
+					margin: 0 $grid-gap_small 0 0;
+					&:nth-child(4n) {
+						margin-right: 0;
+					}
+				}
+
+				.product-page--info {
+					padding: 0;
 				}
 			}
 	}

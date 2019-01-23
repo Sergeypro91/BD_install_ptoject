@@ -2213,6 +2213,19 @@ input[type=text]:hover, input[type=tel]:hover, select:hover, textarea:hover {
     border: none;
     margin-bottom: 15px;
   }
+}
+
+@media all and (max-width: 1199px) and (max-width: 425px) {
+  .propouse--chapter:hover .propouse--img {
+    width: 65px;
+    margin: 15px 15px 15px 0;
+  }
+  .propouse--img {
+    margin: 15px 30px 15px 0;
+  }
+}
+
+@media all and (max-width: 1199px) {
   #tiles {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -2467,6 +2480,7 @@ input[type=text]:hover, input[type=tel]:hover, select:hover, textarea:hover {
     -ms-grid-columns: (1fr)[4];
     grid-template-columns: repeat(4, 1fr);
     margin-bottom: 15px;
+    grid-gap: 15px;
   }
   .block--paragraph {
     line-height: 17px;
@@ -2484,14 +2498,14 @@ input[type=text]:hover, input[type=tel]:hover, select:hover, textarea:hover {
   }
 }
 
-@media all and (max-width: 1199px) and (max-width: 425px) {
+@media all and (max-width: 1199px) and (max-width: 600px) {
   .market {
     -ms-grid-columns: (1fr)[2];
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media all and (max-width: 1199px) and (max-width: 375px) {
+@media all and (max-width: 1199px) and (max-width: 425px) {
   .market {
     -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
@@ -2572,9 +2586,12 @@ input[type=text]:hover, input[type=tel]:hover, select:hover, textarea:hover {
   }
 }
 
-@media all and (max-width: 1199px) and (max-width: 1199px) {
+@media all and (max-width: 1199px) {
   .nav {
     overflow: scroll;
+  }
+  .search--wrapper {
+    padding: 0 calc(30px * 2) 0 15px;
   }
   .codyshop-ajax-search {
     padding: 0 15px;
@@ -2586,6 +2603,9 @@ input[type=text]:hover, input[type=tel]:hover, select:hover, textarea:hover {
   .search--block:nth-child(2n) {
     margin-right: 0;
   }
+  .search--block-error {
+    line-height: 1;
+  }
 }
 
 @media all and (max-width: 1199px) and (max-width: 600px) {
@@ -2595,6 +2615,39 @@ input[type=text]:hover, input[type=tel]:hover, select:hover, textarea:hover {
   }
   .search--block:nth-child(n) {
     margin-right: 0;
+  }
+}
+
+@media all and (max-width: 1199px) {
+  .product-page {
+    padding: 15px;
+  }
+}
+
+@media all and (max-width: 1199px) and (max-width: 425px) {
+  .product-page--product {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .product-page--imgs {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    max-width: 100%;
+    padding: 0;
+  }
+  .product-page--img {
+    width: calc((100% - 15px * 3) / 4);
+    margin: 0 15px 0 0;
+  }
+  .product-page--img:nth-child(4n) {
+    margin-right: 0;
+  }
+  .product-page--info {
+    padding: 0;
   }
 }
 
