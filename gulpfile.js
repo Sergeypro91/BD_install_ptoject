@@ -7,6 +7,7 @@ var gulp         = require('gulp'),
 	rename       = require('gulp-rename'),
 	del          = require('del'),
 	imagemin     = require('gulp-imagemin'),
+	webp		 = require('gulp-webp'),
 	pngquant     = require('imagemin-pngquant'),
 	autoprefixer = require('gulp-autoprefixer');
 
@@ -59,6 +60,7 @@ gulp.task('img', gulp.series(function() {
 			svgoPlugins: [{removeViewBox: false}],
 			use: [pngquant()]
 		}))
+		.pipe(webp())
 		.pipe(gulp.dest('dist/img'));
 }));
 
