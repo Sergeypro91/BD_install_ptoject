@@ -60,8 +60,14 @@ gulp.task('img', gulp.series(function() {
 			svgoPlugins: [{removeViewBox: false}],
 			use: [pngquant()]
 		}))
+		.pipe(gulp.dest('dist/img/jpg'));
+}));
+
+gulp.task('webp', gulp.series(function() {
+	return gulp.src('dist/img/jpg/**/*')
 		.pipe(webp())
-		.pipe(gulp.dest('dist/img'));
+		.pipe(rename({suffix: '.jpg'}))
+		.pipe(gulp.dest('dist/img/webp'));
 }));
 
 gulp.task('watch', gulp.series('browser-sync', 'css-libs', 'scripts', function() {
@@ -70,7 +76,7 @@ gulp.task('watch', gulp.series('browser-sync', 'css-libs', 'scripts', function()
 	gulp.watch('app/js/**/*.js', browserSync.reload);
 }));
 
-gulp.task('build', gulp.series('clean', 'img', 'sass', 'scripts', function(cd) {
+gulp.task('build', gulp.series('clean', 'img', 'webp', 'sass', 'scripts', function(cd) {
 
 	var buildCss = gulp.src('app/css/**/*')
 		.pipe(gulp.dest('dist/css'));

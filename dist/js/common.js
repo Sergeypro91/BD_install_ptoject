@@ -202,4 +202,30 @@
     });
   });
 
-$(elements).lazyLoadXT();
+document.addEventListener("DOMContentLoaded", function() {
+  var Images= [].slice.call(document.querySelectorAll("img.lazyloading"));
+
+  if ("IntersectionObserver" in window) {
+    let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting){
+          let Image= entry.target;
+          Image.src = Image.dataset.src;
+          Image.srcset = Image.dataset.srcset;
+          Image.onload = function(){
+               this.classList.remove("lazyloading");
+               delete this.dataset.src;
+               delete this.dataset.srcset;
+          }
+          lazyImageObserver.unobserve(Image);
+        }
+      });
+    });
+
+    Images.forEach(function(Image) {
+      lazyImageObserver.observe(Image);
+    });
+  } else {
+    // дополнительный метод который будет активирован при отсутствии IntersectionObserver
+  }
+});
