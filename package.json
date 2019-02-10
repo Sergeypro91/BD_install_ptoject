@@ -14,13 +14,18 @@
     "gulp": "^4.0.0",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-clean-css": "^4.0.0",
+    "gulp-clone": "^2.0.1",
     "gulp-concat": "^2.6.1",
     "gulp-imagemin": "^5.0.3",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
+    "gulp-svgmin": "^2.1.0",
     "gulp-uglifyjs": "^0.6.2",
     "gulp-webp": "^4.0.0",
-    "imagemin-pngquant": "^6.0.1"
+    "imagemin-pngquant": "^6.0.1",
+    "imagemin-webp": "^5.0.0",
+    "npm-cache": "^0.7.0",
+    "svgo": "^1.1.1"
   },
   "dependencies": {
     "owl.carousel2": "^2.2.1"

@@ -16,12 +16,11 @@
   transition: 0.5s;
 }
 
-.block--bbn__white {
+.block--bbn {
   font-family: Oswald, sans-serif;
-  font-size: 72;
+  font-size: 200px;
   font-weight: 600;
-  line-height: 57px;
-  color: #FFFFFF;
+  color: #262626;
   margin-top: 0px;
   margin-bottom: 38px;
 }
@@ -112,6 +111,10 @@ a:hover {
   -ms-grid-rows: 60px minmax(calc(100vh - 280px), 1fr) 220px;
   grid-template-rows: 60px minmax(calc(100vh - 280px), 1fr) 220px;
   background-color: #ECECEC;
+}
+
+.main--title {
+  display: none;
 }
 
 .grid-cell {
@@ -520,6 +523,7 @@ a:hover {
 
 .propouse--chapter:last-child {
   border-bottom: none;
+  margin-bottom: 0;
 }
 
 .sale {
@@ -976,7 +980,7 @@ a:hover {
   grid-row: 1 / 4;
 }
 
-.fname, .lname, .phone, .subject {
+.fio, .email, .tel, .subject {
   font-family: Roboto, sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -990,7 +994,7 @@ a:hover {
   grid-row: 4;
 }
 
-input[type=text], input[type=tel], select, textarea {
+input[type=text], input[type=tel], input[type=email], select, textarea {
   width: 100%;
   padding: 12px;
   border: 2px solid #707070;
@@ -1002,13 +1006,13 @@ input[type=text], input[type=tel], select, textarea {
   transition: 0.5s;
 }
 
-input[type=text]:focus, input[type=tel]:focus, select:focus, textarea:focus {
+input[type=text]:focus, input[type=tel]:focus, input[type=email]:focus, select:focus, textarea:focus {
   background-color: #FFFFFF;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
-input[type=text]:hover, input[type=tel]:hover, select:hover, textarea:hover {
+input[type=text]:hover, input[type=tel]:hover, input[type=email]:hover, select:hover, textarea:hover {
   border-color: #1A68FF;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -1066,6 +1070,10 @@ input[type=text]:hover, input[type=tel]:hover, select:hover, textarea:hover {
 .map--address:last-child, .map--phone:last-child, .map--e-mail:last-child, .map--workers:last-child, .map--weekends:last-child {
   -ms-grid-column: 2;
   grid-column: 2;
+}
+
+.ymaps-2-1-72-controls-pane {
+  display: none;
 }
 
 .content-page {
@@ -1154,7 +1162,6 @@ input[type=text]:hover, input[type=tel]:hover, select:hover, textarea:hover {
 }
 
 .market--child {
-  max-height: 4000px;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1166,17 +1173,8 @@ input[type=text]:hover, input[type=tel]:hover, select:hover, textarea:hover {
 }
 
 .market--child-img {
-  min-height: 200px;
-  height: 100%;
-  max-width: 200px;
   width: 100%;
-  margin: 30px auto 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  padding: 30px 30px 0 30px;
 }
 
 .market--child-img a {
@@ -1396,6 +1394,10 @@ input[type=text]:hover, input[type=tel]:hover, select:hover, textarea:hover {
   margin-left: 3px;
 }
 
+.product-page--manufacture-img {
+  max-width: 150px;
+}
+
 .product-page--texnical {
   display: none;
   -webkit-transition: 0.5s;
@@ -1482,6 +1484,10 @@ input[type=text]:hover, input[type=tel]:hover, select:hover, textarea:hover {
       justify-content: space-around;
 }
 
+.propouse-page-child {
+  grid-column: 1 / -1;
+}
+
 .propouse-page--child {
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -1523,6 +1529,36 @@ input[type=text]:hover, input[type=tel]:hover, select:hover, textarea:hover {
 
 .propouse-page--child-info * {
   text-align: center;
+}
+
+.propouse-page--content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.propouse-page--descr {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 100%;
+}
+
+.propouse-page--child-descr {
+  height: 100%;
+}
+
+.propouse-page--content-child {
+  width: calc(100vw / 4);
 }
 
 .sale-page {
@@ -1685,13 +1721,32 @@ input[type=text]:hover, input[type=tel]:hover, select:hover, textarea:hover {
       flex-wrap: wrap;
 }
 
+.error-page {
+  -ms-grid-row: 2;
+  grid-row: 2;
+  min-height: calc(100vh - 220px - 60px);
+  margin: 0 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
 .footer {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 3fr 1fr;
   grid-template-columns: 1fr 3fr 1fr;
-  -ms-grid-rows: 140px 20px;
-  grid-template-rows: 140px 20px;
   background: #262626;
   -ms-grid-row: 3;
   grid-row: 3;
@@ -1933,6 +1988,12 @@ input[type=text]:hover, input[type=tel]:hover, select:hover, textarea:hover {
   .block--paragraph {
     line-height: 17px;
   }
+  .market--child-img {
+    padding: 15px 15px 0 15px;
+  }
+  .market--child-descr {
+    padding: 15px;
+  }
   .sale-page--child {
     max-width: calc((100% - 15px * 2) / 3);
     margin: 0 15px 15px 0;
@@ -2097,7 +2158,7 @@ input[type=text]:hover, input[type=tel]:hover, select:hover, textarea:hover {
   .input-toggler:checked ~ .nav {
     -webkit-transform: translateX(0);
             transform: translateX(0);
-    opacity: .98;
+    opacity: 1;
   }
   .nav--specials {
     position: absolute;
@@ -2384,8 +2445,6 @@ input[type=text]:hover, input[type=tel]:hover, select:hover, textarea:hover {
   .footer {
     -ms-grid-columns: 1fr 3fr;
     grid-template-columns: 1fr 3fr;
-    -ms-grid-rows: 140px auto;
-    grid-template-rows: 140px auto;
   }
   .footer--logo {
     -ms-grid-column: 1;
@@ -2442,6 +2501,12 @@ input[type=text]:hover, input[type=tel]:hover, select:hover, textarea:hover {
   }
   .block--paragraph {
     line-height: 17px;
+  }
+  .market--child-descr {
+    padding: 15px;
+  }
+  .market--child-img {
+    padding: 15px 15px 0 15px;
   }
 }
 
@@ -2606,6 +2671,12 @@ input[type=text]:hover, input[type=tel]:hover, select:hover, textarea:hover {
   }
   .product-page--info {
     padding: 0;
+  }
+}
+
+@media all and (max-width: 1199px) {
+  .error-page {
+    margin: 15px;
   }
 }
 

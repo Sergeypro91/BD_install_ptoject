@@ -7,8 +7,12 @@ var gulp         = require('gulp'),
 	rename       = require('gulp-rename'),
 	del          = require('del'),
 	imagemin     = require('gulp-imagemin'),
+	imageminWebp = require('imagemin-webp'),
+	svgmin		 = require('gulp-svgmin'),
 	webp		 = require('gulp-webp'),
-	pngquant     = require('imagemin-pngquant'),
+	pngquant	 = require('imagemin-pngquant'),
+	clone		 = require('gulp-clone'),
+	clonesink	 = clone.sink(),
 	autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('sass', gulp.series(function() {
@@ -28,6 +32,15 @@ gulp.task('scripts', gulp.series(function() {
 		'node_modules/owl.carousel2/dist/owl.carousel.min.js'
 		])
 		.pipe(concat('libs.min.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('app/js'));
+}));
+
+gulp.task('scripts-common', gulp.series(function() {
+	return gulp.src([
+		'app/js/common.js'
+		])
+		.pipe(concat('common.min.js'))
 		.pipe(uglify())
 		.pipe(gulp.dest('app/js'));
 }));
@@ -52,19 +65,25 @@ gulp.task('clean', gulp.series(function() {
 }));
 
 gulp.task('img', gulp.series(function() {
-	return gulp.src('app/img/**/*')
+	return gulp.src('app/img/**/*.jpg')
 		.pipe(imagemin({
-			optimizationLevel: 3,
+			optimizationLevel: 5,
 			interlaced: true,
 			progressive: true,
 			svgoPlugins: [{removeViewBox: false}],
-			use: [pngquant()]
+			use: [pngquant()] 
 		}))
 		.pipe(gulp.dest('dist/img/jpg'));
 }));
 
+gulp.task('svgmin', function () {
+    return gulp.src('app/img/**/*.svg')
+        .pipe(svgmin())
+        .pipe(gulp.dest('dist/img/svg'));
+});
+
 gulp.task('webp', gulp.series(function() {
-	return gulp.src('dist/img/jpg/**/*')
+	return gulp.src('dist/img/jpg/**/*.jpg')
 		.pipe(webp())
 		.pipe(rename({suffix: '.jpg'}))
 		.pipe(gulp.dest('dist/img/webp'));
@@ -76,7 +95,7 @@ gulp.task('watch', gulp.series('browser-sync', 'css-libs', 'scripts', function()
 	gulp.watch('app/js/**/*.js', browserSync.reload);
 }));
 
-gulp.task('build', gulp.series('clean', 'img', 'webp', 'sass', 'scripts', function(cd) {
+gulp.task('build', gulp.series('clean', 'img', 'svgmin', 'webp', 'sass', 'scripts', 'scripts-common', function(cd) {
 
 	var buildCss = gulp.src('app/css/**/*')
 		.pipe(gulp.dest('dist/css'));

@@ -1,12 +1,16 @@
 //Product-page image listener
   var current = document.querySelector('#current');
   var imgs = document.querySelectorAll('.product-page--imgs img');
-  imgs.forEach(img => img.addEventListener('click', imgClick));
+  imgs.forEach(function (img) {
+    return img.addEventListener('click', imgClick);
+  });
 
   function imgClick(e) {
     current.src = e.target.src; // Add fade in class
     current.classList.add('fade-in'); // Add fade in class
-    setTimeout(() => current.classList.remove('fade-in'), 500); // Remove fade-in class after .5 seconds
+    setTimeout(function () {
+      return current.classList.remove('fade-in');
+    }, 500); // Remove fade-in class after .5 seconds
   }
 
 // Show, hide search on mobile
@@ -108,7 +112,7 @@
   });
 
 // Block--counter
-  var target_date = new Date("Jan 31, 2019 23:59:00").getTime(); // set the countdown date
+  var target_date = new Date("February 30, 2019 23:59:00").getTime(); // set the countdown date
   var days, hours, minutes, seconds; // variables for time units
 
   var countdown = document.getElementById("tiles"); // get tag element
@@ -202,30 +206,23 @@
     });
   });
 
-document.addEventListener("DOMContentLoaded", function() {
-  var Images= [].slice.call(document.querySelectorAll("img.lazyloading"));
+// Form on main
+$("#submit").click(function() {
+    var name = $('input[name=fio]').val();
+    var tel = $('input[name=tel]').val();
+    var otpravka = true;
+    if (name == "") {
+        otpravka = false;
+    }
+    if (tel == "") {
+        otpravka = false;
+    }
+    if (otpravka) {
 
-  if ("IntersectionObserver" in window) {
-    let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting){
-          let Image= entry.target;
-          Image.src = Image.dataset.src;
-          Image.srcset = Image.dataset.srcset;
-          Image.onload = function(){
-               this.classList.remove("lazyloading");
-               delete this.dataset.src;
-               delete this.dataset.srcset;
-          }
-          lazyImageObserver.unobserve(Image);
-        }
-      });
-    });
-
-    Images.forEach(function(Image) {
-      lazyImageObserver.observe(Image);
-    });
-  } else {
-    // дополнительный метод который будет активирован при отсутствии IntersectionObserver
-  }
+        dannie = { 'polz_name': name, 'polz_tel': tel };
+        $.post('/wp-content/themes/bd_install/contact-form.php', dannie, function(otvet) {
+            rezultat = '<div style="color:#D80018;">' + otvet.text + '</div>';
+            $("#form_result").hide().html(rezultat).slideDown();
+        }, 'json');
+    }
 });

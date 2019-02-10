@@ -28,12 +28,11 @@
 		}
 	}
 
-	.block--bbn__white {
+	.block--bbn {
 		font-family: $font-family1;
-		font-size: 72;
+		font-size: 200px;
 		font-weight: 600;
-		line-height: 57px;
-		color: $main_color6;
+		color: $main_color3;
 		margin-top: 0px;
 		margin-bottom: 38px;
 	}
@@ -119,6 +118,10 @@
 		grid-template-rows: 60px minmax(calc(100vh - 280px), 1fr) 220px;
 		background-color: $main_color5;
 		
+	}
+
+	.main--title {
+		display: none;
 	}
 
 	// Grid Margin size block
@@ -433,6 +436,7 @@
 			}
 			&:last-child {
 				border-bottom: none;
+				margin-bottom: 0;
 			}
 		}
 
@@ -738,7 +742,7 @@
 			grid-row: 1 / 4;
 		}
 
-		.fname, .lname, .phone, .subject {
+		.fio, .email, .tel, .subject {
 			font-family: $font-family2;
 			font-size: 14px;
 			font-weight: 400;
@@ -750,7 +754,7 @@
 			grid-row: 4;
 		}
 
-		input[type=text], input[type=tel], select, textarea {
+		input[type=text], input[type=tel], input[type=email], select, textarea {
 			width: 100%;
 			padding: 12px;
 			border: 2px solid $main_color4;
@@ -807,6 +811,10 @@
 			&:last-child {
 				grid-column: 2;
 			}
+		}
+
+		.ymaps-2-1-72-controls-pane {
+			display: none;
 		}
 
 	// Content-page
@@ -878,20 +886,14 @@
 		}
 
 		.market--child {
-			max-height: 4000px;
 			height: 100%;
 			display: flex;
 			flex-direction: column;
 		}
 
 		.market--child-img {
-			min-height: 200px;
-			height: 100%;
-			max-width: 200px;
 			width: 100%;
-			margin: 30px auto 0;
-			display: flex;
-			align-items: center;
+			padding: $grid-gap $grid-gap 0 $grid-gap;
 			a {
 				display: flex;
 			}
@@ -942,8 +944,7 @@
 		.product-page {
 			grid-column: 1 / 8;
 			min-height: 600px;
-			padding: $grid-gap;
-
+			padding: 30px;
 		}
 
 		.product-page--product {
@@ -1056,6 +1057,10 @@
 			}
 		}
 
+		.product-page--manufacture-img {
+			max-width: 150px;
+		}
+
 		.product-page--texnical {
 			display: none;
 			transition: 0.5s;
@@ -1123,6 +1128,10 @@
 		    justify-content: space-around;
 		}
 
+		.propouse-page-child {
+			grid-column: 1 / -1;
+		}
+
 		.propouse-page--child {
 		    flex: 1;
 		    display: flex;
@@ -1149,6 +1158,26 @@
 			* {
 				text-align: center;
 			}
+		}
+
+		.propouse-page--content {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		.propouse-page--descr {
+		    display: flex;
+		    flex-direction: column;
+		    justify-content: space-between;
+		    height: 100%;
+		}
+
+		.propouse-page--child-descr {
+		    height: 100%;
+		}
+
+		.propouse-page--content-child {
+		    width: calc(100vw / 4);
 		}
 
 	// Sale-page
@@ -1274,11 +1303,22 @@
 			flex-wrap: wrap;
 		}
 
+	// Error-page
+		.error-page {
+		    grid-row: 2;
+		    min-height: calc(100vh - 220px - 60px);
+		    margin: 0 $grid-gap;
+		    display: flex;
+		    flex-direction: column;
+		    justify-content: center;
+		    align-items: center;
+		    text-align: center;
+		}
+
 // Footer
 	.footer {
 		display: grid;
 		grid-template-columns: 1fr 3fr 1fr;
-		grid-template-rows: 140px 20px;
 		background: $main_color3;
 		grid-row: 3;
 		padding: $grid-gap calc(#{$grid-gap} * 2);
@@ -1475,6 +1515,14 @@
 				line-height: 17px;
 			}
 
+			.market--child-img {
+				padding: $grid-gap_small $grid-gap_small 0 $grid-gap_small;
+			}
+
+			.market--child-descr {
+				padding: $grid-gap_small;
+			}
+
 		// Sale-page
 			.sale-page--child {
 			    max-width: calc((100% - #{$grid-gap_small} * 2) / 3);
@@ -1642,7 +1690,7 @@
 
 				.input-toggler:checked ~ .nav {
 					transform: translateX(0);
-					opacity: .98;
+					opacity: 1;
 				}
 
 				.nav--specials {
@@ -1898,7 +1946,6 @@
 		// Footer
 			.footer {
 				grid-template-columns: 1fr 3fr;
-				grid-template-rows: 140px auto;
 			}
 
 			.footer--logo {
@@ -1953,6 +2000,14 @@
 
 			.block--paragraph {
 				line-height: 17px;
+			}
+
+			.market--child-descr {
+				padding: $grid-gap_small;
+			}
+
+			.market--child-img {
+				padding: $grid-gap_small $grid-gap_small 0 $grid-gap_small;
 			}
 
 			@media all and (max-width:768px) {
@@ -2110,6 +2165,11 @@
 				.product-page--info {
 					padding: 0;
 				}
+			}
+
+		// Error-page
+			.error-page {
+			    margin: $grid-gap_small;
 			}
 	}
 
