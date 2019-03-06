@@ -141,7 +141,7 @@ a:hover {
   background-color: #FFFFFF;
   -webkit-box-shadow: 0 0 6px #00000030;
           box-shadow: 0 0 6px #00000030;
-  border-radius: 3px;
+  border-radius: 5px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -607,6 +607,8 @@ a:hover {
 }
 
 .block--counter {
+  width: 100%;
+  max-width: 450px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -621,6 +623,7 @@ a:hover {
 }
 
 #tiles {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -645,32 +648,31 @@ a:hover {
 }
 
 #tiles span:nth-child(2n+1) {
-  min-width: 80px;
+  width: 25%;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
 
 #tiles span:nth-child(2n) {
-  min-width: 30px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
 
 .labels {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .labels li {
-  width: 80px;
+  width: 20%;
   display: inline;
-  margin: 0 30px 0 0;
   text-align: center;
 }
 
@@ -1604,19 +1606,20 @@ input[type=text]:hover, input[type=tel]:hover, input[type=email]:hover, select:h
 
 .sale-page {
   grid-column: 1 / -1;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[5];
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: 330px;
+  grid-gap: 30px;
 }
 
 .sale-page--child {
-  max-width: calc((100% - 30px * 3) / 4);
-  width: 100%;
-  margin: 0 30px 30px 0;
   background-color: white;
   background-repeat: no-repeat;
   background-position: left top;
   background-size: 200%;
+  border-right: 5px;
   -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
 }
@@ -1624,6 +1627,8 @@ input[type=text]:hover, input[type=tel]:hover, input[type=email]:hover, select:h
 .sale-page--child:hover {
   background-position: center center;
   background-size: 80%;
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
 }
 
 .sale-page--child:nth-child(4n) {
@@ -1643,7 +1648,16 @@ input[type=text]:hover, input[type=tel]:hover, input[type=email]:hover, select:h
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 30px;
-  background: linear-gradient(45deg, #e61616db, #1a68ff80);
+  border-radius: 5px;
+}
+
+.sale-page--child-name > .block--paragraph, .sale-page--child-name .block--h3 {
+  margin-bottom: 10px;
+}
+
+.sale-page--child-name > .block--paragraph__date_to {
+  font-weight: 600;
+  margin: 0;
 }
 
 .about-us {
@@ -2166,13 +2180,16 @@ input[type=text]:hover, input[type=tel]:hover, input[type=email]:hover, select:h
   .market--child-descr {
     padding: 15px;
   }
-  .sale-page--child {
-    max-width: calc((100% - 15px * 2) / 3);
-    margin: 0 15px 15px 0;
+}
+
+@media all and (min-width: 1200px) and (max-width: 1916px) and (max-width: 1600px) {
+  .sale-page {
+    -ms-grid-columns: (1fr)[4];
+    grid-template-columns: repeat(4, 1fr);
   }
-  .sale-page--child:nth-child(3n) {
-    margin-right: 0;
-  }
+}
+
+@media all and (min-width: 1200px) and (max-width: 1916px) {
   .codyshop-ajax-search {
     padding: 0 15px;
   }
@@ -2756,23 +2773,32 @@ input[type=text]:hover, input[type=tel]:hover, input[type=email]:hover, select:h
   }
 }
 
-@media all and (max-width: 1199px) and (max-width: 1024px) {
-  .sale-page--child {
-    max-width: calc((100% - 15px * 1) / 2);
-    margin: 0 15px 15px 0;
-  }
-  .sale-page--child:nth-child(2n) {
-    margin-right: 0;
+@media all and (max-width: 1199px) {
+  .sale-page {
+    -ms-grid-columns: (1fr)[4];
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
   }
 }
 
-@media all and (max-width: 1199px) and (max-width: 425px) {
-  .sale-page--child {
-    max-width: 100%;
-    margin: 0 15px 15px 0;
+@media all and (max-width: 1199px) and (max-width: 1024px) {
+  .sale-page {
+    -ms-grid-columns: (1fr)[3];
+    grid-template-columns: repeat(3, 1fr);
   }
-  .sale-page--child:nth-child(n) {
-    margin-right: 0;
+}
+
+@media all and (max-width: 1199px) and (max-width: 767px) {
+  .sale-page {
+    -ms-grid-columns: (1fr)[2];
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media all and (max-width: 1199px) and (max-width: 499px) {
+  .sale-page {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
   }
 }
 
