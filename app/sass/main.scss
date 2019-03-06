@@ -47,6 +47,16 @@
 		margin-bottom: 38px;
 	}
 
+	.block--h2 {
+		font-family: $font-family2;
+		font-size: 47px;
+		font-weight: 500;
+		line-height: 69px;
+		color: $main_color3;
+		margin-top: 0px;
+		margin-bottom: 19px;
+	}
+
 	.block--name {
 		font-family: $font-family1;
 		font-size: 35px;
@@ -78,6 +88,16 @@
 		font-size: 14px;
 		font-weight: 400;
 		line-height: 19px;
+		color: $main_color4;
+		margin-top: 0px;
+		margin-bottom: 19px;
+	}
+
+	.block--h2-paragraph {
+		font-family: $font-family2;
+		font-size: 18px;
+		font-weight: 400;
+		line-height: 23px;
 		color: $main_color4;
 		margin-top: 0px;
 		margin-bottom: 19px;
@@ -179,22 +199,33 @@
 		align-items: center;
 	}
 
+	.nav--list, #menu-menu {
+		height: 100%;
+		display: flex;
+		padding: 0px;
+		margin: 0px;
+	}
+
+	.menu-menu-container {
+		height: 100%;
+	}
+
 	.nav--list-child, .nav--phone {
 		margin-right: 45px;
 		align-self: center;
 	}
 
-	.nav--list, #menu-menu {
-		padding: 0px;
-		margin: 0px;
-	}
-
 	.nav--list-child {
-		display: inline;
+		display: flex;
+		align-items: center;
+		height: 100%;
 	}
 
-	.current_page_item a {
-		color: $main-color2;
+	.current_page_item, .current-menu-item, .current-menu-parent {
+		border-top: 3px solid $main-color2;
+		a {
+			color: $main-color2;
+		}
 	}
 
 	.nav--specials {
@@ -295,6 +326,9 @@
 			align-self: center;
 			margin: 0 $grid-gap 0 $grid-gap;
 			z-index: 3;
+			.block--h1 {
+				font-size: 28px;
+			}
 		}
 
 		.buttons {
@@ -921,6 +955,7 @@
 			.block--paragraph {
 				overflow: hidden;
 				max-height: 65px;
+				height: 100%;
 			}
 		}
 
@@ -1011,10 +1046,8 @@
 			width: 20px;
 			height: 20px;
 			margin-left: 10px;
-		}
-
-		.product-page--color-child:empty {
-			display: none;
+			border: 2px solid $main-color4;
+    		border-radius: 50%;
 		}
 
 		.product-page--descr-button, .product-page--texnical-button {
@@ -1211,6 +1244,88 @@
 		    justify-content: space-between;
     		padding: $grid-gap;
     		background: linear-gradient(45deg, #e61616db, #1a68ff80);
+		}
+
+	// About-us
+		.about-us {
+			grid-column: 1 / -1;
+		    display: flex;
+		    flex-direction: column;
+		    margin: auto;
+		    &:nth-child(1n) > div {
+		    	display: grid;
+		    	grid-template-columns: repeat(10, 1fr);
+		    	max-width: 1400px;
+		    	margin: 0 auto $grid-gap;
+		    }
+		}
+
+		.about-us--who_we {}
+
+		.about-us--who_we-descr {
+			grid-column: 1 / 5;
+			display: flex;
+		    flex-direction: column;
+		    justify-content: center;
+		    margin-right: $grid-gap;
+		}
+
+		.about-us--who_we-img {
+			grid-column: 5 / 11;
+		}
+
+		.about-us--we_are {}
+
+		.about-us--we_are-imgs {
+			grid-column: 1 / 7;
+			display: grid;
+		    grid-template-columns: repeat(4, 1fr);
+		    grid-template-rows: repeat(4, 1fr);
+    		grid-gap: 30px;
+		}
+
+		.about-us--we_are-image {
+			display: flex;
+		    align-items: center;
+		    justify-content: center;
+		    padding: 5px;
+		    background: $main-color6;
+		}
+
+		.about-us--we_are-descr {
+			grid-column: 7 / 11;
+			margin-left: $grid-gap;
+		    display: flex;
+		    flex-direction: column;
+		    justify-content: center;
+		    ul {
+		    	margin: 0;
+		    	li {
+		    		margin-bottom: 5px;
+		    	}
+		    }
+		}
+
+		.about-us--we_propouse {
+			margin-bottom: 0 !important;
+		}
+
+		.about-us--we_propouse-descr {
+			grid-column: 1 / 6;
+			display: flex;
+		    flex-direction: column;
+		    justify-content: center;
+		    margin-right: $grid-gap;
+		    ul {
+		    	margin: 0;
+		    	li {
+		    		margin-bottom: 5px;
+		    	}
+		    }
+		}
+
+		.about-us--we_propouse-img {
+			grid-column: 6 / 11;
 		}
 
 	// Kontacts-page
@@ -1573,6 +1688,10 @@
 				z-index: 10;
 			}
 
+			.nav--list, #menu-menu {
+				height: auto;
+			}
+
 			.nav--phone {
 				display: none;
 			}
@@ -1599,18 +1718,16 @@
 					display: block;
 				}
 
-				:root {
-					--sidebar-width: 100%;
-					--toggler-size: 30px;
-				}
+				$sidebar-width: 100%;
+				$toggler-size: 30px;
 
 				.nav, .content {
 					transition: all .25s ease-out;
 				}
 
 				.nav {
-					width: var(--sidebar-width);
-					transform: translateX(calc(var(--sidebar-width) * -1));
+					width: $sidebar-width;
+					transform: translateX(calc(#{$sidebar-width} * -1));
 					background: $main-color2;
 					display: flex;
 					flex-direction: column;
@@ -1643,15 +1760,15 @@
 					display: block;
 					justify-self: flex-end;
 					align-self: center;
-					width: var(--toggler-size);
-					height: var(--toggler-size);
+					width: $toggler-size;
+					height: calc(#{$toggler-size} / 1.5);
 					position: relative;
 					cursor: pointer;
 					z-index: 6;
 				}
 
 				.menu-toggler__line {
-					height: calc(var(--toggler-size) / 7);
+					height: calc((#{$toggler-size} / 1.5) / 5);
 					background: $main-color2;
 					position: absolute;
 					left: 0;
@@ -1659,12 +1776,17 @@
 					transition: all .25s ease-out;
 				}
 
+				.menu-toggler__line:nth-child(1) {  
+					width: calc(#{$toggler-size} / 2);
+				}
+
 				.menu-toggler__line:nth-child(2) {  
-					top: calc(var(--toggler-size) / 5 * 2);
+					top: calc(((#{$toggler-size} / 1.5) / 5) * 2);
 				}
 
 				.menu-toggler__line:nth-child(3) {
-					top: calc(var(--toggler-size) / 5 * 4);
+					top: calc(((#{$toggler-size} / 1.5) / 5) * 4);
+					width: calc(#{$toggler-size} / 1.25);
 				}
 
 				.input-toggler {
@@ -1677,15 +1799,20 @@
 				}
 
 				.input-toggler:checked ~ .menu-toggler .menu-toggler__line:nth-child(1) {  
-				 transform: translateY(calc(var(--toggler-size) / 5 * 2)) rotate(45deg);
+					transform: translateY(calc((#{$toggler-size} / 1.5) / 5 * 2)) rotate(45deg);
+					width: 80%;
+					height: calc(#{$toggler-size} / 10);
 				}
 
 				.input-toggler:checked ~ .menu-toggler .menu-toggler__line:nth-child(2) {
-				 opacity: 0;
+					opacity: 0;
+					height: calc(#{$toggler-size} / 10);
 				}
 
 				.input-toggler:checked ~ .menu-toggler .menu-toggler__line:nth-child(3) {  
-				 transform: translateY(calc(var(--toggler-size) / 5 * -2)) rotate(-45deg);
+					transform: translateY(calc((#{$toggler-size} / 1.5) / 5 * -2)) rotate(-45deg);
+					width: 80%;
+					height: calc(#{$toggler-size} / 10);
 				}
 
 				.input-toggler:checked ~ .nav {
@@ -2029,6 +2156,20 @@
 
 			@media all and (max-width:425px) {
 				.market {
+					grid-template-columns: 1fr 1fr;
+				}
+
+				.market--child-img {
+					padding: 0;
+				}
+
+				.market--child-descr > * {
+					margin: 0;
+				}
+			}
+
+			@media all and (max-width:320px) {
+				.market {
 					grid-template-columns: 1fr;
 				}
 			}
@@ -2192,6 +2333,3 @@
 			transform: none;
 		}
 	}
-
-
-
