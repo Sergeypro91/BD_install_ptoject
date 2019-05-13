@@ -1283,6 +1283,9 @@
 
 		.about-us--who_we-img {
 			grid-column: 5 / 11;
+			& img {
+				width: 100%;
+			}
 		}
 
 		.about-us--we_are {}
@@ -1337,6 +1340,11 @@
 
 		.about-us--we_propouse-img {
 			grid-column: 6 / 11;
+			display: flex;
+			align-items: center;
+			img {
+				width: 100%;
+			}
 		}
 
 	// Kontacts-page
@@ -1439,6 +1447,50 @@
 			justify-content: center;
 			align-items: center;
 			text-align: center;
+		}
+
+	// 54-FZ
+		.fz--about {
+			display: flex;
+			width: 100%;
+			margin-bottom: calc(#{$grid-gap} * 2);
+		}
+
+		.fz--about__firstchild {
+			flex: 1 30%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			.block--h3 {
+				margin: 0;
+			}
+		}
+
+		.fz--about__secondchild {
+			flex: 1 70%;
+			display: flex;
+			flex-wrap: wrap;
+			p {
+				margin: 0;
+			}
+			.fz--about__secondchild-chapter:nth-child(3n) {
+				p.block--paragraph {
+					border-bottom: 3px solid $main_color2 !important;
+				}
+			}
+		}
+
+		.fz--about__secondchild .fz--about__secondchild-chapter {
+			flex: 1 calc(100%/3);
+			p.block--paragraph {
+				font-weight: 600;
+				height: 60px;
+				align-items: center;
+				display: flex;
+				justify-content: center;
+				margin-bottom: $grid-gap;
+				border-bottom: 3px solid lighten( $main_color2, 30% );
+			}
 		}
 
 // Footer
@@ -2260,32 +2312,23 @@
 			}
 
 			@media all and (max-width:768px) {
-				.about-us--who_we-descr,
 				.about-us--we_are-imgs,
-				.about-us--we_propouse-descr,
 				.about-us--who_we-img,
-				.about-us--we_are-descr,
 				.about-us--we_propouse-img {
 					grid-column: 1 / -1;
-					grid-row: 1 / -1;
+					grid-row: 1;
+					padding: $grid-gap_small;
+					background: $main_color6;
 				}
 
 				.about-us--who_we-descr,
 				.about-us--we_propouse-descr,
 				.about-us--we_are-descr {
-					background: rgba($main_color6, 0.9);
-					margin: 0;
+					grid-column: 1 / -1;
+					grid-row: 2;
 					padding: $grid-gap_small;
-					& ul {
-						padding-left: $grid-gap_small;
-					}
-				}
-
-				.about-us--we_are-imgs,
-				.about-us--who_we-img,
-				.about-us--we_propouse-img {
-					background: $main_color6;
-					z-index: -1;
+					margin: 0;
+					background: rgba($main_color6, 0.9);
 				}
 			}
 

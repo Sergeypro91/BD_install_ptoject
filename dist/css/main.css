@@ -1702,6 +1702,10 @@ input[type=text]:hover, input[type=tel]:hover, input[type=email]:hover, select:h
   grid-column: 5 / 11;
 }
 
+.about-us--who_we-img img {
+  width: 100%;
+}
+
 .about-us--we_are-imgs {
   -ms-grid-column: 1;
   -ms-grid-column-span: 6;
@@ -1787,6 +1791,16 @@ input[type=text]:hover, input[type=tel]:hover, input[type=email]:hover, select:h
   -ms-grid-column: 6;
   -ms-grid-column-span: 5;
   grid-column: 6 / 11;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.about-us--we_propouse-img img {
+  width: 100%;
 }
 
 .kontacts-page {
@@ -1924,6 +1938,74 @@ input[type=text]:hover, input[type=tel]:hover, input[type=email]:hover, select:h
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
+}
+
+.fz--about {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  margin-bottom: calc(30px * 2);
+}
+
+.fz--about__firstchild {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 30%;
+          flex: 1 30%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.fz--about__firstchild .block--h3 {
+  margin: 0;
+}
+
+.fz--about__secondchild {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 70%;
+          flex: 1 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.fz--about__secondchild p {
+  margin: 0;
+}
+
+.fz--about__secondchild .fz--about__secondchild-chapter:nth-child(3n) p.block--paragraph {
+  border-bottom: 3px solid #1A68FF !important;
+}
+
+.fz--about__secondchild .fz--about__secondchild-chapter {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 calc(100%/3);
+          flex: 1 calc(100%/3);
+}
+
+.fz--about__secondchild .fz--about__secondchild-chapter p.block--paragraph {
+  font-weight: 600;
+  height: 60px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 30px;
+  border-bottom: 3px solid #b3cdff;
 }
 
 .footer {
@@ -2825,32 +2907,24 @@ input[type=text]:hover, input[type=tel]:hover, input[type=email]:hover, select:h
 }
 
 @media all and (max-width: 1199px) and (max-width: 768px) {
-  .about-us--who_we-descr,
   .about-us--we_are-imgs,
-  .about-us--we_propouse-descr,
   .about-us--who_we-img,
-  .about-us--we_are-descr,
   .about-us--we_propouse-img {
     grid-column: 1 / -1;
-    grid-row: 1 / -1;
+    -ms-grid-row: 1;
+    grid-row: 1;
+    padding: 15px;
+    background: #FFFFFF;
   }
   .about-us--who_we-descr,
   .about-us--we_propouse-descr,
   .about-us--we_are-descr {
-    background: rgba(255, 255, 255, 0.9);
-    margin: 0;
+    grid-column: 1 / -1;
+    -ms-grid-row: 2;
+    grid-row: 2;
     padding: 15px;
-  }
-  .about-us--who_we-descr ul,
-  .about-us--we_propouse-descr ul,
-  .about-us--we_are-descr ul {
-    padding-left: 15px;
-  }
-  .about-us--we_are-imgs,
-  .about-us--who_we-img,
-  .about-us--we_propouse-img {
-    background: #FFFFFF;
-    z-index: -1;
+    margin: 0;
+    background: rgba(255, 255, 255, 0.9);
   }
 }
 
