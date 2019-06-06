@@ -2005,6 +2005,9 @@
 						color: $main-color3;
 						font-size: 18px;
 					}
+					.block--name::after {
+						margin: 8px auto;
+					}
 				}
 
 				@media all and (max-width:769px) {

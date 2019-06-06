@@ -2572,6 +2572,9 @@ input[type=text]:hover, input[type=tel]:hover, input[type=email]:hover, select:h
     color: #262626;
     font-size: 18px;
   }
+  .slider--description .block--name::after {
+    margin: 8px auto;
+  }
 }
 
 @media all and (max-width: 1199px) and (max-width: 769px) {
