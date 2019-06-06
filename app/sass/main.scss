@@ -310,7 +310,7 @@
 			height: 600px;
 			position: relative;
 			display: flex;
-			align-items: center;
+			align-items: flex-end;
 			video {
 				z-index: 3;
 			}
@@ -328,6 +328,8 @@
 			z-index: 3;
 			.block--h1 {
 				font-size: 28px;
+				line-height: 38px;
+				margin-bottom: $grid-gap;
 			}
 		}
 
@@ -1453,23 +1455,59 @@
 		.fz--about {
 			display: flex;
 			width: 100%;
-			margin-bottom: calc(#{$grid-gap} * 2);
-		}
-
-		.fz--about__firstchild {
-			flex: 1 30%;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			.block--h3 {
-				margin: 0;
+			min-height: 140px;
+			background: $main-color6;
+			margin-bottom: $grid-gap;
+			border-radius: 4px;
+			box-shadow: 0 0 6px #00000030;
+			cursor: pointer;
+			transition: 0.5s;
+			&:hover {
+				box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05), 0 2px 2px 0 rgba(0, 0, 0, 0.05), 0 4px 4px 0 rgba(0, 0, 0, 0.05), 0 8px 8px 0 rgba(0, 0, 0, 0.05), 0 16px 16px 0 rgba(0, 0, 0, 0.05), 0 32px 32px 0 rgba(0, 0, 0, 0.05);
+				transition: 0.5s;
 			}
 		}
 
-		.fz--about__secondchild {
-			flex: 1 70%;
+		.fz--about__firstchild {
+			position: relative;
 			display: flex;
-			flex-wrap: wrap;
+			width: 100%;
+			min-height: 140px;
+			justify-content: center;
+			align-items: center;
+			padding: $grid-gap;
+			transition: 0.8s;
+			background-size: cover;
+			.block--h1 {
+				margin: 0;
+				z-index: 1;
+			}
+			&:before {
+				content: "";
+				width: 100%;
+				min-height: 140px;
+				height: 100%;
+				position:absolute;
+				left:0;
+				top:0;
+				opacity:0.4;
+				border-radius: 4px;
+				background-size: cover;
+				background-position: center;
+				filter: blur(1px);
+			}
+		}
+
+		.fz--about:hover .fz--about__firstchild {
+			width: 40%;
+			border-radius: 4px 0 0 4px;
+		}
+
+		.fz--about__secondchild {
+			position: relative;
+			display: none;
+			align-items: center;
+			padding: $grid-gap;
 			p {
 				margin: 0;
 			}
@@ -1480,8 +1518,18 @@
 			}
 		}
 
+		.fz--about:hover .fz--about__secondchild {
+			display: flex;
+			width: 100%;
+			& .block--paragraph {
+				font-size: 20px;
+				line-height: 24px;
+			}
+		}
+
 		.fz--about__secondchild .fz--about__secondchild-chapter {
 			flex: 1 calc(100%/3);
+			height: 100%;
 			p.block--paragraph {
 				font-weight: 600;
 				height: 60px;
@@ -1491,6 +1539,30 @@
 				margin-bottom: $grid-gap;
 				border-bottom: 3px solid lighten( $main_color2, 30% );
 			}
+		}
+
+		.fz--about__54fz:before {
+			background-image: url(https://bd57.ru/wp-content/uploads/fz-about__54fz.jpg);			
+		}
+
+		.fz--about__ofd:before {
+			background-image: url(https://bd57.ru/wp-content/uploads/fz-about__ofd.jpg);
+		}
+
+		.fz--about__fn:before {
+			background-image: url(https://bd57.ru/wp-content/uploads/fz-about__fn.jpg);
+		}
+
+		.fz--about__deadline:before {
+			background-image: url(https://bd57.ru/wp-content/uploads/fz-about__deadline.jpg);
+		}
+
+		.fz--about__fains:before {
+			background-image: url(https://bd57.ru/wp-content/uploads/fz-about__fains.jpg);
+		}
+
+		.fz--about__ourprop:before {
+			background-image: url(https://bd57.ru/wp-content/uploads/fz-about__ourprop.jpg);
 		}
 
 // Footer
@@ -1748,7 +1820,6 @@
 				top: 0;
 				transition: top 0.2s ease-in-out;
 				width: 100%;
-				box-shadow: 0 0 6px #00000030;
 				z-index: 10;
 			}
 
@@ -1900,19 +1971,20 @@
 
 			//Slider
 				.slider {
-					margin-top: 15px;
+					max-height: none;
 				}
 
 				.slider--content {
-					grid-template-columns: 1fr;
+					display: flex;
+					flex-direction: column;
+					height: calc(100vh - (60px + #{$grid-gap_small}));
+					max-height: none;
 				}
 
 				.slider--backgrounds {
+					flex: 1 100%;
 					justify-content: center;
-					opacity: 0.5;
 					video {
-						width: 100%;
-						max-height: 600px;
 					}
 				}
 
@@ -1923,9 +1995,10 @@
 					padding: 15px;
 					display: flex;
 					flex-direction: column;
-					justify-content: center;
 					align-items: center;
-					grid-column: 1;
+					h1 {
+						margin: 0;
+					}
 					.block--paragraph {
 						width: 100%;
 						text-align: center;
@@ -1934,16 +2007,29 @@
 					}
 				}
 
-				@media all and (max-width:425px) {
+				@media all and (max-width:769px) {
 					.slider--backgrounds {
-						height: 400px;
-						video {
-							display: none;
+						img {
+							padding: 0 $grid-gap_small;
 						}
+						
 					}
 
 					.slider--description {
 						width: 100%;
+						.block--h1 {
+							font-size: 24px;
+							text-align: center;
+							line-height: auto;
+						}
+					}
+				}
+
+				@media all and (max-width:425px) {
+					.slider--backgrounds {
+						video {
+							display: none;
+						}
 					}
 				}
 
@@ -2423,6 +2509,25 @@
 		// Error-page
 			.error-page {
 				margin: $grid-gap_small;
+			}
+
+		// 54-FZ
+			@media all and (max-width:768px) {
+				.fz--about {
+					flex-direction: column;
+					&:hover .fz--about__firstchild {
+						width: 100%;
+					}
+				}
+
+				.fz--about__firstchild {
+					padding: $grid-gap_small;
+				}
+
+				.fz--about__secondchild {
+					padding: $grid-gap_small;
+					flex-direction: column;
+				}
 			}
 	}
 

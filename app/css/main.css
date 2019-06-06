@@ -351,9 +351,9 @@ a:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 .slider--backgrounds video {
@@ -379,6 +379,8 @@ a:hover {
 
 .slider--description .block--h1 {
   font-size: 28px;
+  line-height: 38px;
+  margin-bottom: 30px;
 }
 
 .buttons {
@@ -1945,37 +1947,76 @@ input[type=text]:hover, input[type=tel]:hover, input[type=email]:hover, select:h
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  margin-bottom: calc(30px * 2);
+  min-height: 140px;
+  background: #FFFFFF;
+  margin-bottom: 30px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 0 6px #00000030;
+          box-shadow: 0 0 6px #00000030;
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.fz--about:hover {
+  -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05), 0 2px 2px 0 rgba(0, 0, 0, 0.05), 0 4px 4px 0 rgba(0, 0, 0, 0.05), 0 8px 8px 0 rgba(0, 0, 0, 0.05), 0 16px 16px 0 rgba(0, 0, 0, 0.05), 0 32px 32px 0 rgba(0, 0, 0, 0.05);
+          box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05), 0 2px 2px 0 rgba(0, 0, 0, 0.05), 0 4px 4px 0 rgba(0, 0, 0, 0.05), 0 8px 8px 0 rgba(0, 0, 0, 0.05), 0 16px 16px 0 rgba(0, 0, 0, 0.05), 0 32px 32px 0 rgba(0, 0, 0, 0.05);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .fz--about__firstchild {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 30%;
-          flex: 1 30%;
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  width: 100%;
+  min-height: 140px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 30px;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+  background-size: cover;
 }
 
-.fz--about__firstchild .block--h3 {
+.fz--about__firstchild .block--h1 {
   margin: 0;
+  z-index: 1;
+}
+
+.fz--about__firstchild:before {
+  content: "";
+  width: 100%;
+  min-height: 140px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.4;
+  border-radius: 4px;
+  background-size: cover;
+  background-position: center;
+  -webkit-filter: blur(1px);
+          filter: blur(1px);
+}
+
+.fz--about:hover .fz--about__firstchild {
+  width: 40%;
+  border-radius: 4px 0 0 4px;
 }
 
 .fz--about__secondchild {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 70%;
-          flex: 1 70%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  position: relative;
+  display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 30px;
 }
 
 .fz--about__secondchild p {
@@ -1986,10 +2027,23 @@ input[type=text]:hover, input[type=tel]:hover, input[type=email]:hover, select:h
   border-bottom: 3px solid #1A68FF !important;
 }
 
+.fz--about:hover .fz--about__secondchild {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.fz--about:hover .fz--about__secondchild .block--paragraph {
+  font-size: 20px;
+  line-height: 24px;
+}
+
 .fz--about__secondchild .fz--about__secondchild-chapter {
   -webkit-box-flex: 1;
       -ms-flex: 1 calc(100%/3);
           flex: 1 calc(100%/3);
+  height: 100%;
 }
 
 .fz--about__secondchild .fz--about__secondchild-chapter p.block--paragraph {
@@ -2006,6 +2060,30 @@ input[type=text]:hover, input[type=tel]:hover, input[type=email]:hover, select:h
           justify-content: center;
   margin-bottom: 30px;
   border-bottom: 3px solid #b3cdff;
+}
+
+.fz--about__54fz:before {
+  background-image: url(https://bd57.ru/wp-content/uploads/fz-about__54fz.jpg);
+}
+
+.fz--about__ofd:before {
+  background-image: url(https://bd57.ru/wp-content/uploads/fz-about__ofd.jpg);
+}
+
+.fz--about__fn:before {
+  background-image: url(https://bd57.ru/wp-content/uploads/fz-about__fn.jpg);
+}
+
+.fz--about__deadline:before {
+  background-image: url(https://bd57.ru/wp-content/uploads/fz-about__deadline.jpg);
+}
+
+.fz--about__fains:before {
+  background-image: url(https://bd57.ru/wp-content/uploads/fz-about__fains.jpg);
+}
+
+.fz--about__ourprop:before {
+  background-image: url(https://bd57.ru/wp-content/uploads/fz-about__ourprop.jpg);
 }
 
 .footer {
@@ -2299,8 +2377,6 @@ input[type=text]:hover, input[type=tel]:hover, input[type=email]:hover, select:h
     -webkit-transition: top 0.2s ease-in-out;
     transition: top 0.2s ease-in-out;
     width: 100%;
-    -webkit-box-shadow: 0 0 6px #00000030;
-            box-shadow: 0 0 6px #00000030;
     z-index: 10;
   }
   .nav--list, #menu-menu {
@@ -2450,21 +2526,26 @@ input[type=text]:hover, input[type=tel]:hover, input[type=email]:hover, select:h
     background-image: url(../img/search--icon__white.svg);
   }
   .slider {
-    margin-top: 15px;
+    max-height: none;
   }
   .slider--content {
-    -ms-grid-columns: 1fr;
-    grid-template-columns: 1fr;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: calc(100vh - (60px + 15px));
+    max-height: none;
   }
   .slider--backgrounds {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 100%;
+            flex: 1 100%;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    opacity: 0.5;
-  }
-  .slider--backgrounds video {
-    width: 100%;
-    max-height: 600px;
   }
   .slider--description {
     height: 100%;
@@ -2478,14 +2559,12 @@ input[type=text]:hover, input[type=tel]:hover, input[type=email]:hover, select:h
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    -ms-grid-column: 1;
-    grid-column: 1;
+  }
+  .slider--description h1 {
+    margin: 0;
   }
   .slider--description .block--paragraph {
     width: 100%;
@@ -2495,15 +2574,23 @@ input[type=text]:hover, input[type=tel]:hover, input[type=email]:hover, select:h
   }
 }
 
-@media all and (max-width: 1199px) and (max-width: 425px) {
-  .slider--backgrounds {
-    height: 400px;
-  }
-  .slider--backgrounds video {
-    display: none;
+@media all and (max-width: 1199px) and (max-width: 769px) {
+  .slider--backgrounds img {
+    padding: 0 15px;
   }
   .slider--description {
     width: 100%;
+  }
+  .slider--description .block--h1 {
+    font-size: 24px;
+    text-align: center;
+    line-height: auto;
+  }
+}
+
+@media all and (max-width: 1199px) and (max-width: 425px) {
+  .slider--backgrounds video {
+    display: none;
   }
 }
 
@@ -3022,6 +3109,28 @@ input[type=text]:hover, input[type=tel]:hover, input[type=email]:hover, select:h
 @media all and (max-width: 1199px) {
   .error-page {
     margin: 15px;
+  }
+}
+
+@media all and (max-width: 1199px) and (max-width: 768px) {
+  .fz--about {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .fz--about:hover .fz--about__firstchild {
+    width: 100%;
+  }
+  .fz--about__firstchild {
+    padding: 15px;
+  }
+  .fz--about__secondchild {
+    padding: 15px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 }
 
