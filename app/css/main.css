@@ -2592,6 +2592,11 @@ input[type=text]:hover, input[type=tel]:hover, input[type=email]:hover, select:h
   .slider--backgrounds video {
     display: none;
   }
+  .slider--description .block--paragraph {
+    font-size: 14px;
+    line-height: normal;
+    font-weight: 500;
+  }
 }
 
 @media all and (max-width: 1199px) {
